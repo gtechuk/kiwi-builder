@@ -1,0 +1,7 @@
+version: '2'
+services:
+    builder:
+        build: .
+        privileged: true
+        volumes:
+         - ./out:/out:rw
