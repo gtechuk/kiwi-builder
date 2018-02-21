@@ -9,13 +9,15 @@ RUN zypper --non-interactive --no-gpg-checks refs \
     && zypper --non-interactive --no-gpg-checks install -y -f  which python3-kiwi jing gfxboot debootstrap dpkg checkmedia syslinux git
 
 WORKDIR /root
-# Clone description
+
+# Clone kiwi examples
 RUN git clone https://github.com/SUSE/kiwi-descriptions.git
 
 # Add run script
 COPY run.sh /run.sh
 
+VOLUME [ "/out" ]
 ENTRYPOINT [ "/run.sh" ]
 
-# Build one of the examples cloned from github
-CMD [ "/root/kiwi-descriptions/suse/x86_64/suse-leap-42.3-JeOS" ]
+# Default to builder the Suse Leap 42.3 JeOS Example
+CMD [ "/root/kiwi-descriptions/suse/x86_64/suse-leap-42.3-JeOS", "oem" ]

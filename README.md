@@ -2,6 +2,8 @@
 
 Docker container for building ISO OS Images with Kiwi.
 
+By default the image builds one of the Kiwi Leap JeOS 42.3 example.
+
 ## Run
 
 To create an ISO from the Leap JeOS 42.3 example using docker-compose:
