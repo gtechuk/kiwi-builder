@@ -4,4 +4,4 @@ services:
         build: .
         privileged: true
         volumes:
-         - ./out:/out:rw
+         - ./out:/root/kiwi-descriptions/suse/x86_64/suse-leap-42.3-JeOS/out:rw

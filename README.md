@@ -17,6 +17,11 @@ as a volume and provide the path to the volume as the argument.
 
 For documentation on configuring Kiwi images see https://suse.github.io/kiwi/overview/workflow.html
 
+### CDRoot
+
+Kiwi expects additional ISO filesystem files to be provided in a tarball, for convenience
+this build image will convert the "cdroot" folder content into said tarball (config-cdroot.tar.gz)
+
 ## Examples
 
 Example Kiwi configuration files can be found here: https://github.com/SUSE/kiwi-descriptions

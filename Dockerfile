@@ -6,7 +6,8 @@ RUN zypper --non-interactive --gpg-auto-import-keys addrepo -f http://download.o
 # Install everything we need
 RUN zypper --non-interactive --no-gpg-checks refs \
     && zypper --non-interactive --no-gpg-checks refresh \
-    && zypper --non-interactive --no-gpg-checks install -y -f  which python3-kiwi jing gfxboot debootstrap dpkg checkmedia syslinux git
+    && zypper --non-interactive --no-gpg-checks install -y -f which python3-kiwi=9.15.3 jing gfxboot debootstrap dpkg checkmedia syslinux git \
+    && kiwi-ng --version
 
 WORKDIR /root
 
@@ -17,7 +18,6 @@ RUN git clone https://github.com/SUSE/kiwi-descriptions.git
 COPY run.sh /run.sh
 
 VOLUME [ "/out" ]
-ENTRYPOINT [ "/run.sh" ]
 
 # Default to builder the Suse Leap 42.3 JeOS Example
-CMD [ "/root/kiwi-descriptions/suse/x86_64/suse-leap-42.3-JeOS", "oem" ]
+CMD [ "/run.sh", "/root/kiwi-descriptions/suse/x86_64/suse-leap-42.3-JeOS", "oem" ]
